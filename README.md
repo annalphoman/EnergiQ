@@ -8,4 +8,4 @@ EnergiQ is an AI-powered energy intelligence platform designed to understand ene
 
 PARANOVA 8-HOUR INTER-COLLEGE HACKATHON
 
-### SDG 7 — Affordable & Clean Energy
+### SDG 7 - Affordable & Clean Energy

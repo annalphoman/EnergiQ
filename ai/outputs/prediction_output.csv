@@ -1,0 +1,5 @@
+location,prediction_date,predicted_next_day_kwh,historical_last_day_kwh
+Main Block - Computer Lab 201,2026-09-18,195.0,95.14
+Main Block - Lab 101,2026-09-18,195.0,93.58
+Research Wing - AI Research Lab,2026-09-18,190.23,109.94
+Research Wing - Server Room,2026-09-18,195.0,93.54
