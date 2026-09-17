@@ -1,0 +1,204 @@
+timestamp,building,room,equipment,actual_power_kw,expected_power_kw,anomaly_status,anomaly_score
+2026-09-03 12:26:48,Main Block,Computer Lab 201,Server Units,14.425,4.415,ANOMALY,-0.7045
+2026-09-03 18:26:48,Research Wing,AI Research Lab,Server Units,13.81,4.425,ANOMALY,-0.7076
+2026-09-03 19:26:48,Research Wing,AI Research Lab,Server Units,12.914,4.425,ANOMALY,-0.7065
+2026-09-04 00:26:48,Main Block,Lab 101,Server Units,4.791,4.434,ANOMALY,-0.6213
+2026-09-04 00:26:48,Main Block,Computer Lab 201,Server Units,4.82,4.415,ANOMALY,-0.6221
+2026-09-04 00:26:48,Research Wing,AI Research Lab,Server Units,4.063,4.425,ANOMALY,-0.6202
+2026-09-04 00:26:48,Research Wing,Server Room,Server Units,3.997,4.396,ANOMALY,-0.6216
+2026-09-04 18:26:48,Research Wing,AI Research Lab,AC,13.893,0.25,ANOMALY,-0.7076
+2026-09-04 23:26:48,Main Block,Lab 101,Server Units,12.566,4.434,ANOMALY,-0.7285
+2026-09-05 00:26:48,Main Block,Lab 101,Server Units,4.323,4.434,ANOMALY,-0.6492
+2026-09-05 00:26:48,Main Block,Computer Lab 201,Server Units,4.636,4.415,ANOMALY,-0.6491
+2026-09-05 00:26:48,Research Wing,AI Research Lab,Server Units,3.75,4.425,ANOMALY,-0.6515
+2026-09-05 00:26:48,Research Wing,Server Room,Server Units,3.75,4.396,ANOMALY,-0.6515
+2026-09-05 01:26:48,Main Block,Lab 101,Server Units,4.84,4.434,ANOMALY,-0.6434
+2026-09-05 01:26:48,Main Block,Computer Lab 201,Server Units,4.956,4.415,ANOMALY,-0.6555
+2026-09-05 01:26:48,Research Wing,AI Research Lab,Server Units,11.676,4.425,ANOMALY,-0.7315
+2026-09-05 01:26:48,Research Wing,Server Room,Server Units,4.954,4.396,ANOMALY,-0.6555
+2026-09-05 02:26:48,Main Block,Lab 101,Server Units,4.262,4.434,ANOMALY,-0.6286
+2026-09-05 02:26:48,Main Block,Computer Lab 201,Server Units,3.891,4.415,ANOMALY,-0.6323
+2026-09-05 02:26:48,Research Wing,AI Research Lab,Server Units,4.816,4.425,ANOMALY,-0.6387
+2026-09-05 02:26:48,Research Wing,Server Room,Server Units,4.605,4.396,ANOMALY,-0.6312
+2026-09-05 03:26:48,Main Block,Lab 101,Server Units,4.333,4.434,ANOMALY,-0.6206
+2026-09-05 03:26:48,Main Block,Computer Lab 201,Server Units,4.568,4.415,ANOMALY,-0.6226
+2026-09-05 03:26:48,Research Wing,AI Research Lab,Server Units,3.814,4.425,ANOMALY,-0.6195
+2026-09-05 03:26:48,Research Wing,Server Room,Server Units,3.841,4.396,ANOMALY,-0.62
+2026-09-05 06:26:48,Research Wing,AI Research Lab,Server Units,4.991,4.425,ANOMALY,-0.6161
+2026-09-05 15:26:48,Research Wing,Server Room,Computers,5.655,0.08,ANOMALY,-0.6195
+2026-09-05 18:26:48,Main Block,Lab 101,AC,5.068,0.25,ANOMALY,-0.6125
+2026-09-05 18:26:48,Research Wing,Server Room,AC,5.085,0.25,ANOMALY,-0.6129
+2026-09-05 19:26:48,Research Wing,Server Room,Server Units,14.272,4.396,ANOMALY,-0.7209
+2026-09-05 20:26:48,Main Block,Computer Lab 201,Server Units,4.938,4.415,ANOMALY,-0.6167
+2026-09-05 20:26:48,Research Wing,AI Research Lab,Server Units,4.945,4.425,ANOMALY,-0.6184
+2026-09-05 21:26:48,Main Block,Lab 101,Server Units,3.752,4.434,ANOMALY,-0.6183
+2026-09-05 21:26:48,Main Block,Computer Lab 201,Server Units,4.457,4.415,ANOMALY,-0.611
+2026-09-05 21:26:48,Research Wing,AI Research Lab,Server Units,3.889,4.425,ANOMALY,-0.6124
+2026-09-05 21:26:48,Research Wing,Server Room,Server Units,4.784,4.396,ANOMALY,-0.621
+2026-09-05 22:26:48,Main Block,Lab 101,Server Units,4.832,4.434,ANOMALY,-0.63
+2026-09-05 22:26:48,Main Block,Computer Lab 201,Server Units,4.167,4.415,ANOMALY,-0.6159
+2026-09-05 22:26:48,Research Wing,AI Research Lab,Server Units,4.139,4.425,ANOMALY,-0.615
+2026-09-05 22:26:48,Research Wing,Server Room,AC,0.75,0.25,ANOMALY,-0.6174
+2026-09-05 22:26:48,Research Wing,Server Room,Server Units,3.896,4.396,ANOMALY,-0.6186
+2026-09-05 23:26:48,Main Block,Lab 101,Server Units,4.15,4.434,ANOMALY,-0.6268
+2026-09-05 23:26:48,Main Block,Computer Lab 201,Server Units,3.916,4.415,ANOMALY,-0.6301
+2026-09-05 23:26:48,Research Wing,AI Research Lab,Server Units,4.361,4.425,ANOMALY,-0.6266
+2026-09-05 23:26:48,Research Wing,Server Room,Server Units,4.893,4.396,ANOMALY,-0.6413
+2026-09-06 00:26:48,Main Block,Lab 101,Server Units,3.822,4.434,ANOMALY,-0.6477
+2026-09-06 00:26:48,Main Block,Computer Lab 201,Server Units,4.427,4.415,ANOMALY,-0.6496
+2026-09-06 00:26:48,Research Wing,AI Research Lab,Server Units,4.807,4.425,ANOMALY,-0.6567
+2026-09-06 00:26:48,Research Wing,Server Room,Server Units,4.805,4.396,ANOMALY,-0.6567
+2026-09-06 01:26:48,Main Block,Lab 101,Server Units,3.8,4.434,ANOMALY,-0.6331
+2026-09-06 01:26:48,Main Block,Computer Lab 201,Server Units,4.973,4.415,ANOMALY,-0.6559
+2026-09-06 01:26:48,Research Wing,AI Research Lab,Server Units,4.593,4.425,ANOMALY,-0.6381
+2026-09-06 01:26:48,Research Wing,Server Room,Server Units,4.236,4.396,ANOMALY,-0.6318
+2026-09-06 02:26:48,Main Block,Lab 101,Server Units,3.976,4.434,ANOMALY,-0.6314
+2026-09-06 02:26:48,Main Block,Computer Lab 201,Server Units,3.77,4.415,ANOMALY,-0.6343
+2026-09-06 02:26:48,Research Wing,AI Research Lab,Server Units,4.067,4.425,ANOMALY,-0.6272
+2026-09-06 02:26:48,Research Wing,Server Room,Server Units,4.809,4.396,ANOMALY,-0.6387
+2026-09-06 03:26:48,Main Block,Lab 101,Server Units,3.873,4.434,ANOMALY,-0.6216
+2026-09-06 03:26:48,Main Block,Computer Lab 201,Server Units,4.271,4.415,ANOMALY,-0.6191
+2026-09-06 03:26:48,Research Wing,AI Research Lab,Server Units,4.122,4.425,ANOMALY,-0.6232
+2026-09-06 03:26:48,Research Wing,Server Room,Server Units,4.163,4.396,ANOMALY,-0.6228
+2026-09-06 06:26:48,Main Block,Lab 101,Server Units,5.01,4.434,ANOMALY,-0.622
+2026-09-06 17:26:48,Main Block,Lab 101,AC,5.161,0.25,ANOMALY,-0.6121
+2026-09-06 17:26:48,Main Block,Computer Lab 201,AC,5.167,0.25,ANOMALY,-0.6121
+2026-09-06 21:26:48,Main Block,Lab 101,Server Units,4.598,4.434,ANOMALY,-0.6159
+2026-09-06 21:26:48,Main Block,Computer Lab 201,Server Units,4.646,4.415,ANOMALY,-0.6166
+2026-09-06 21:26:48,Research Wing,Server Room,Server Units,4.47,4.396,ANOMALY,-0.6121
+2026-09-06 22:26:48,Main Block,Lab 101,Server Units,4.609,4.434,ANOMALY,-0.6229
+2026-09-06 22:26:48,Main Block,Computer Lab 201,Server Units,3.812,4.415,ANOMALY,-0.6224
+2026-09-06 22:26:48,Research Wing,AI Research Lab,Server Units,4.524,4.425,ANOMALY,-0.6221
+2026-09-06 22:26:48,Research Wing,Server Room,Server Units,4.876,4.396,ANOMALY,-0.633
+2026-09-06 23:26:48,Main Block,Lab 101,Server Units,14.271,4.434,ANOMALY,-0.7434
+2026-09-06 23:26:48,Main Block,Computer Lab 201,Server Units,4.782,4.415,ANOMALY,-0.6364
+2026-09-06 23:26:48,Research Wing,AI Research Lab,Server Units,3.849,4.425,ANOMALY,-0.6318
+2026-09-06 23:26:48,Research Wing,Server Room,Server Units,4.008,4.396,ANOMALY,-0.6293
+2026-09-07 00:26:48,Main Block,Lab 101,Server Units,4.639,4.434,ANOMALY,-0.6146
+2026-09-07 00:26:48,Main Block,Computer Lab 201,Server Units,3.854,4.415,ANOMALY,-0.6237
+2026-09-07 00:26:48,Research Wing,AI Research Lab,Server Units,4.718,4.425,ANOMALY,-0.6165
+2026-09-07 00:26:48,Research Wing,Server Room,Server Units,4.43,4.396,ANOMALY,-0.6141
+2026-09-07 16:26:48,Research Wing,Server Room,Server Units,14.26,4.396,ANOMALY,-0.7023
+2026-09-07 20:26:48,Research Wing,AI Research Lab,Server Units,12.697,4.425,ANOMALY,-0.7176
+2026-09-08 00:26:48,Main Block,Lab 101,Server Units,3.859,4.434,ANOMALY,-0.6229
+2026-09-08 00:26:48,Main Block,Computer Lab 201,Server Units,5.045,4.415,ANOMALY,-0.6419
+2026-09-08 00:26:48,Research Wing,AI Research Lab,Server Units,4.124,4.425,ANOMALY,-0.6184
+2026-09-08 00:26:48,Research Wing,Server Room,Server Units,3.801,4.396,ANOMALY,-0.6265
+2026-09-08 11:26:48,Main Block,Computer Lab 201,Server Units,13.35,4.415,ANOMALY,-0.6971
+2026-09-08 13:26:48,Main Block,Lab 101,AC,11.974,0.25,ANOMALY,-0.6789
+2026-09-08 23:26:48,Main Block,Computer Lab 201,Server Units,5.052,4.415,ANOMALY,-0.6099
+2026-09-09 00:26:48,Main Block,Lab 101,Server Units,4.99,4.434,ANOMALY,-0.6375
+2026-09-09 00:26:48,Main Block,Computer Lab 201,Server Units,4.892,4.415,ANOMALY,-0.6318
+2026-09-09 00:26:48,Research Wing,AI Research Lab,Server Units,3.881,4.425,ANOMALY,-0.6212
+2026-09-09 00:26:48,Research Wing,Server Room,Server Units,4.455,4.396,ANOMALY,-0.6145
+2026-09-09 08:26:48,Main Block,Computer Lab 201,AC,12.411,0.25,ANOMALY,-0.6845
+2026-09-09 08:26:48,Research Wing,Server Room,Server Units,11.964,4.396,ANOMALY,-0.6817
+2026-09-09 10:26:48,Main Block,Computer Lab 201,Server Units,14.345,4.415,ANOMALY,-0.7103
+2026-09-09 11:26:48,Research Wing,AI Research Lab,Server Units,11.955,4.425,ANOMALY,-0.6868
+2026-09-09 14:26:48,Main Block,Lab 101,Server Units,14.609,4.434,ANOMALY,-0.7023
+2026-09-10 00:26:48,Main Block,Lab 101,Server Units,4.754,4.434,ANOMALY,-0.6191
+2026-09-10 00:26:48,Main Block,Computer Lab 201,Server Units,3.976,4.415,ANOMALY,-0.6212
+2026-09-10 00:26:48,Research Wing,AI Research Lab,Server Units,4.567,4.425,ANOMALY,-0.6147
+2026-09-10 00:26:48,Research Wing,Server Room,Server Units,4.345,4.396,ANOMALY,-0.6167
+2026-09-10 08:26:48,Main Block,Computer Lab 201,Server Units,12.304,4.415,ANOMALY,-0.6817
+2026-09-10 11:26:48,Research Wing,AI Research Lab,AC,11.837,0.25,ANOMALY,-0.6868
+2026-09-10 14:26:48,Main Block,Computer Lab 201,AC,14.949,0.25,ANOMALY,-0.7065
+2026-09-10 15:26:48,Main Block,Computer Lab 201,AC,15.0,0.25,ANOMALY,-0.7141
+2026-09-11 00:26:48,Main Block,Lab 101,Server Units,4.888,4.434,ANOMALY,-0.6318
+2026-09-11 00:26:48,Main Block,Computer Lab 201,Server Units,3.931,4.415,ANOMALY,-0.6203
+2026-09-11 00:26:48,Research Wing,AI Research Lab,Server Units,4.574,4.425,ANOMALY,-0.6143
+2026-09-11 00:26:48,Research Wing,Server Room,Server Units,3.92,4.396,ANOMALY,-0.6203
+2026-09-11 10:26:48,Research Wing,Server Room,AC,11.584,0.25,ANOMALY,-0.6737
+2026-09-11 23:26:48,Main Block,Computer Lab 201,Server Units,14.473,4.415,ANOMALY,-0.7379
+2026-09-12 00:26:48,Main Block,Lab 101,Server Units,4.253,4.434,ANOMALY,-0.6462
+2026-09-12 00:26:48,Main Block,Computer Lab 201,Server Units,4.826,4.415,ANOMALY,-0.6576
+2026-09-12 00:26:48,Research Wing,AI Research Lab,Server Units,4.901,4.425,ANOMALY,-0.6611
+2026-09-12 00:26:48,Research Wing,Server Room,Server Units,4.981,4.396,ANOMALY,-0.669
+2026-09-12 01:26:48,Main Block,Lab 101,Server Units,4.823,4.434,ANOMALY,-0.6434
+2026-09-12 01:26:48,Main Block,Computer Lab 201,Server Units,4.814,4.415,ANOMALY,-0.6425
+2026-09-12 01:26:48,Research Wing,AI Research Lab,Server Units,4.572,4.425,ANOMALY,-0.6381
+2026-09-12 01:26:48,Research Wing,Server Room,Server Units,3.849,4.396,ANOMALY,-0.6336
+2026-09-12 02:26:48,Main Block,Lab 101,Server Units,4.858,4.434,ANOMALY,-0.6419
+2026-09-12 02:26:48,Main Block,Computer Lab 201,Server Units,4.084,4.415,ANOMALY,-0.6262
+2026-09-12 02:26:48,Research Wing,AI Research Lab,Server Units,3.98,4.425,ANOMALY,-0.6318
+2026-09-12 02:26:48,Research Wing,Server Room,Server Units,4.959,4.396,ANOMALY,-0.6526
+2026-09-12 03:26:48,Main Block,Lab 101,Server Units,4.666,4.434,ANOMALY,-0.6222
+2026-09-12 03:26:48,Main Block,Computer Lab 201,Server Units,4.226,4.415,ANOMALY,-0.62
+2026-09-12 03:26:48,Research Wing,AI Research Lab,Server Units,4.339,4.425,ANOMALY,-0.621
+2026-09-12 03:26:48,Research Wing,Server Room,Server Units,4.772,4.396,ANOMALY,-0.6275
+2026-09-12 04:26:48,Main Block,Lab 101,Server Units,5.054,4.434,ANOMALY,-0.6423
+2026-09-12 04:26:48,Research Wing,AI Research Lab,Server Units,13.034,4.425,ANOMALY,-0.7287
+2026-09-12 11:26:48,Research Wing,Server Room,Server Units,13.097,4.396,ANOMALY,-0.7008
+2026-09-12 12:26:48,Main Block,Computer Lab 201,AC,11.681,0.25,ANOMALY,-0.6859
+2026-09-12 12:26:48,Research Wing,Server Room,Server Units,13.982,4.396,ANOMALY,-0.699
+2026-09-12 20:26:48,Main Block,Computer Lab 201,Server Units,4.915,4.415,ANOMALY,-0.613
+2026-09-12 21:26:48,Main Block,Lab 101,Server Units,4.924,4.434,ANOMALY,-0.6342
+2026-09-12 21:26:48,Main Block,Computer Lab 201,Server Units,4.064,4.415,ANOMALY,-0.6117
+2026-09-12 21:26:48,Research Wing,Server Room,Server Units,4.875,4.396,ANOMALY,-0.6239
+2026-09-12 22:26:48,Main Block,Lab 101,Server Units,3.93,4.434,ANOMALY,-0.6186
+2026-09-12 22:26:48,Main Block,Computer Lab 201,Server Units,4.551,4.415,ANOMALY,-0.6226
+2026-09-12 22:26:48,Research Wing,AI Research Lab,Server Units,4.285,4.425,ANOMALY,-0.6175
+2026-09-12 22:26:48,Research Wing,Server Room,Server Units,4.733,4.396,ANOMALY,-0.6267
+2026-09-12 23:26:48,Main Block,Lab 101,Server Units,3.82,4.434,ANOMALY,-0.6344
+2026-09-12 23:26:48,Main Block,Computer Lab 201,Server Units,4.91,4.415,ANOMALY,-0.6467
+2026-09-12 23:26:48,Research Wing,AI Research Lab,Server Units,4.776,4.425,ANOMALY,-0.6364
+2026-09-12 23:26:48,Research Wing,Server Room,Server Units,5.018,4.396,ANOMALY,-0.6544
+2026-09-13 00:26:48,Main Block,Lab 101,Server Units,4.943,4.434,ANOMALY,-0.6662
+2026-09-13 00:26:48,Main Block,Computer Lab 201,AC,0.75,0.25,ANOMALY,-0.6398
+2026-09-13 00:26:48,Main Block,Computer Lab 201,Server Units,15.069,4.415,ANOMALY,-0.7607
+2026-09-13 00:26:48,Research Wing,AI Research Lab,Server Units,4.242,4.425,ANOMALY,-0.6462
+2026-09-13 00:26:48,Research Wing,Server Room,Server Units,4.716,4.396,ANOMALY,-0.6512
+2026-09-13 01:26:48,Main Block,Lab 101,Server Units,4.475,4.434,ANOMALY,-0.6365
+2026-09-13 01:26:48,Main Block,Computer Lab 201,Server Units,4.64,4.415,ANOMALY,-0.6377
+2026-09-13 01:26:48,Research Wing,AI Research Lab,Server Units,5.038,4.425,ANOMALY,-0.6608
+2026-09-13 01:26:48,Research Wing,Server Room,Server Units,13.78,4.396,ANOMALY,-0.7439
+2026-09-13 02:26:48,Main Block,Lab 101,Server Units,4.922,4.434,ANOMALY,-0.6494
+2026-09-13 02:26:48,Main Block,Computer Lab 201,Server Units,3.842,4.415,ANOMALY,-0.6306
+2026-09-13 02:26:48,Research Wing,AI Research Lab,Server Units,4.813,4.425,ANOMALY,-0.6387
+2026-09-13 02:26:48,Research Wing,Server Room,Server Units,3.751,4.396,ANOMALY,-0.6343
+2026-09-13 03:26:48,Main Block,Lab 101,Server Units,4.111,4.434,ANOMALY,-0.6232
+2026-09-13 03:26:48,Main Block,Computer Lab 201,Server Units,4.688,4.415,ANOMALY,-0.6234
+2026-09-13 03:26:48,Research Wing,AI Research Lab,Server Units,4.673,4.425,ANOMALY,-0.6222
+2026-09-13 03:26:48,Research Wing,Server Room,Server Units,4.491,4.396,ANOMALY,-0.6224
+2026-09-13 06:26:48,Research Wing,AI Research Lab,Server Units,4.985,4.425,ANOMALY,-0.6161
+2026-09-13 08:26:48,Research Wing,Server Room,AC,12.969,0.25,ANOMALY,-0.7001
+2026-09-13 17:26:48,Research Wing,AI Research Lab,Server Units,11.428,4.425,ANOMALY,-0.6937
+2026-09-13 20:26:48,Research Wing,AI Research Lab,Server Units,5.03,4.425,ANOMALY,-0.6268
+2026-09-13 21:26:48,Main Block,Lab 101,Server Units,4.69,4.434,ANOMALY,-0.6164
+2026-09-13 21:26:48,Main Block,Computer Lab 201,Server Units,4.888,4.415,ANOMALY,-0.6267
+2026-09-13 21:26:48,Research Wing,AI Research Lab,Server Units,3.861,4.425,ANOMALY,-0.6129
+2026-09-13 21:26:48,Research Wing,Server Room,Server Units,4.697,4.396,ANOMALY,-0.6164
+2026-09-13 22:26:48,Main Block,Lab 101,Server Units,4.117,4.434,ANOMALY,-0.6163
+2026-09-13 22:26:48,Main Block,Computer Lab 201,Server Units,5.024,4.415,ANOMALY,-0.6473
+2026-09-13 22:26:48,Research Wing,AI Research Lab,Server Units,4.744,4.425,ANOMALY,-0.6272
+2026-09-13 22:26:48,Research Wing,Server Room,Server Units,4.742,4.396,ANOMALY,-0.6267
+2026-09-13 23:26:48,Main Block,Lab 101,Server Units,4.352,4.434,ANOMALY,-0.6266
+2026-09-13 23:26:48,Main Block,Computer Lab 201,Server Units,4.359,4.415,ANOMALY,-0.6266
+2026-09-13 23:26:48,Research Wing,AI Research Lab,Server Units,4.389,4.425,ANOMALY,-0.629
+2026-09-13 23:26:48,Research Wing,Server Room,Server Units,4.586,4.396,ANOMALY,-0.6327
+2026-09-14 00:26:48,Main Block,Lab 101,Server Units,4.487,4.434,ANOMALY,-0.6136
+2026-09-14 00:26:48,Main Block,Computer Lab 201,Server Units,4.413,4.415,ANOMALY,-0.6146
+2026-09-14 00:26:48,Research Wing,AI Research Lab,Server Units,4.711,4.425,ANOMALY,-0.6173
+2026-09-14 00:26:48,Research Wing,Server Room,Server Units,4.661,4.396,ANOMALY,-0.6152
+2026-09-15 00:26:48,Main Block,Lab 101,Server Units,4.098,4.434,ANOMALY,-0.6202
+2026-09-15 00:26:48,Main Block,Computer Lab 201,Server Units,4.784,4.415,ANOMALY,-0.6213
+2026-09-15 00:26:48,Research Wing,AI Research Lab,Server Units,4.675,4.425,ANOMALY,-0.6174
+2026-09-15 00:26:48,Research Wing,Server Room,Server Units,3.936,4.396,ANOMALY,-0.6203
+2026-09-15 03:26:48,Research Wing,Server Room,Server Units,12.716,4.396,ANOMALY,-0.6907
+2026-09-15 10:26:48,Research Wing,Server Room,Server Units,14.956,4.396,ANOMALY,-0.7154
+2026-09-15 15:26:48,Main Block,Lab 101,AC,13.051,0.25,ANOMALY,-0.6949
+2026-09-15 15:26:48,Research Wing,AI Research Lab,AC,13.584,0.25,ANOMALY,-0.6979
+2026-09-15 20:26:48,Main Block,Lab 101,Server Units,11.932,4.434,ANOMALY,-0.7074
+2026-09-15 23:26:48,Main Block,Computer Lab 201,Server Units,12.482,4.415,ANOMALY,-0.7285
+2026-09-16 00:26:48,Main Block,Lab 101,Server Units,4.738,4.434,ANOMALY,-0.6183
+2026-09-16 00:26:48,Main Block,Computer Lab 201,Server Units,5.047,4.415,ANOMALY,-0.6419
+2026-09-16 00:26:48,Research Wing,AI Research Lab,Server Units,4.501,4.425,ANOMALY,-0.6141
+2026-09-16 00:26:48,Research Wing,Server Room,Server Units,4.115,4.396,ANOMALY,-0.618
+2026-09-16 08:26:48,Research Wing,Server Room,Server Units,14.104,4.396,ANOMALY,-0.7018
+2026-09-16 12:26:48,Main Block,Lab 101,AC,13.107,0.25,ANOMALY,-0.6934
+2026-09-16 12:26:48,Research Wing,AI Research Lab,Server Units,15.137,4.425,ANOMALY,-0.7091
+2026-09-17 00:26:48,Main Block,Lab 101,Server Units,4.155,4.434,ANOMALY,-0.6172
+2026-09-17 00:26:48,Main Block,Computer Lab 201,Server Units,3.908,4.415,ANOMALY,-0.6203
+2026-09-17 00:26:48,Research Wing,AI Research Lab,Server Units,3.791,4.425,ANOMALY,-0.6261
+2026-09-17 00:26:48,Research Wing,Server Room,Server Units,3.82,4.396,ANOMALY,-0.6229
+2026-09-17 08:26:48,Research Wing,AI Research Lab,AC,14.711,0.25,ANOMALY,-0.7079
