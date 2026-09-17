@@ -1,4 +1,4 @@
-# Python byte-compiled / optimized / DLL files
+# Python byte-compiled files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -35,5 +35,5 @@ ENV/
 .vscode/
 .idea/
 
-# Large model binaries and generated runtime outputs
+# Model binaries
 *.pkl
