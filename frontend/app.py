@@ -15,7 +15,8 @@ from components.dashboard import (
     render_location_analytics,
     render_forecasting_section,
     render_anomaly_and_wastage_section,
-    render_live_monitor
+    render_live_monitor,
+    render_recommendations
 )
 from components.simulator import render_simulator_page
 
@@ -27,108 +28,142 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS Theme (Dark Mode, Glassmorphism, Modern Typography & Glowing Metrics)
+# Simple and friendly dashboard theme
 CUSTOM_CSS = """
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
     html, body, [class*="css"] {
         font-family: 'Inter', sans-serif;
     }
-    
-    /* Global Page Styling */
+
     .stApp {
-        background-color: #0E1117;
-        color: #E0E6ED;
+        background: linear-gradient(180deg, #0d1117 0%, #111827 100%);
+        color: #f3f4f6;
     }
 
-    /* Sidebar Styling */
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6,
+    .stApp p, .stApp li, .stApp span, .stApp div,
+    .stApp label, .stApp .stMarkdown {
+        color: #f3f4f6 !important;
+    }
+
     section[data-testid="stSidebar"] {
-        background-color: #121622 !important;
-        border-right: 1px solid #212936;
+        background: #050505 !important;
+        border-right: 1px solid #1f1f1f;
     }
 
-    /* Header Container */
     .main-header {
-        background: linear-gradient(135deg, rgba(22, 27, 46, 0.9) 0%, rgba(14, 17, 23, 0.9) 100%);
-        border: 1px solid #212936;
-        border-radius: 12px;
+        background: #111827;
+        border: 1px solid #2a3448;
+        border-radius: 16px;
         padding: 20px 24px;
-        margin-bottom: 24px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        margin-bottom: 18px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     }
 
     .brand-title {
-        font-size: 28px;
-        font-weight: 700;
-        background: linear-gradient(90deg, #00F2FE 0%, #4FACFE 50%, #7F00FF 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-size: 30px;
+        font-weight: 800;
+        color: #ffffff;
         margin: 0;
     }
-    
+
     .brand-subtitle {
-        color: #8B949E;
+        color: #d1d5db;
         font-size: 14px;
-        margin-top: 4px;
+        margin-top: 6px;
     }
 
-    /* Metric Card Customization */
     div[data-testid="stMetric"] {
-        background: rgba(22, 27, 46, 0.7);
-        border: 1px solid #212936;
-        border-radius: 10px;
-        padding: 16px 20px;
-        transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    div[data-testid="stMetric"]:hover {
-        border-color: #00F2FE;
-        transform: translateY(-2px);
+        background: rgba(17, 24, 39, 0.92);
+        border: 1px solid #2a3448;
+        border-radius: 14px;
+        padding: 16px 18px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
 
     div[data-testid="stMetricLabel"] {
-        color: #8B949E !important;
+        color: #d1d5db !important;
         font-size: 13px !important;
-        font-weight: 500 !important;
+        font-weight: 600 !important;
     }
 
     div[data-testid="stMetricValue"] {
-        color: #FFFFFF !important;
+        color: #ffffff !important;
         font-size: 24px !important;
-        font-weight: 700 !important;
+        font-weight: 800 !important;
     }
 
-    /* Tab Customization */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
-        background-color: rgba(22, 27, 46, 0.5);
+        background: rgba(255, 255, 255, 0.6);
         padding: 6px;
-        border-radius: 8px;
-        border: 1px solid #212936;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
     }
 
     .stTabs [data-baseweb="tab"] {
-        border-radius: 6px;
-        color: #8B949E;
+        border-radius: 10px;
+        color: #475569;
         padding: 8px 16px;
-        font-weight: 500;
-    }
-
-    .stTabs [aria-selected="true"] {
-        background-color: #4FACFE !important;
-        color: #FFFFFF !important;
         font-weight: 600;
     }
 
-    /* Table Styling */
+    .stTabs [aria-selected="true"] {
+        background: linear-gradient(135deg, #111111, #2a2a2a) !important;
+        color: #ffffff !important;
+    }
+
+    section[data-testid="stSidebar"] .stRadio > div,
+    section[data-testid="stSidebar"] .stMultiSelect,
+    section[data-testid="stSidebar"] .stSelectbox,
+    section[data-testid="stSidebar"] .stMarkdown,
+    section[data-testid="stSidebar"] label,
+    section[data-testid="stSidebar"] p,
+    section[data-testid="stSidebar"] div,
+    section[data-testid="stSidebar"] h1,
+    section[data-testid="stSidebar"] h2,
+    section[data-testid="stSidebar"] h3,
+    section[data-testid="stSidebar"] h4,
+    section[data-testid="stSidebar"] h5,
+    section[data-testid="stSidebar"] h6,
+    section[data-testid="stSidebar"] span,
+    section[data-testid="stSidebar"] li {
+        color: #ffffff !important;
+        opacity: 1 !important;
+    }
+
+    section[data-testid="stSidebar"] .stRadio [role="radio"] {
+        accent-color: #ffffff !important;
+    }
+
+    section[data-testid="stSidebar"] .stRadio > label,
+    section[data-testid="stSidebar"] .stMultiSelect > label,
+    section[data-testid="stSidebar"] .stSelectbox > label {
+        color: #ffffff !important;
+        font-weight: 600 !important;
+    }
+
+    section[data-testid="stSidebar"] .st-bb {
+        background-color: #111111 !important;
+    }
+
+    section[data-testid="stSidebar"] .stAlert,
+    section[data-testid="stSidebar"] .stInfo {
+        background: rgba(255,255,255,0.05) !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        color: #ffffff !important;
+    }
+
     .stDataFrame {
-        border: 1px solid #212936;
-        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
         overflow: hidden;
+    }
+
+    .stAlert {
+        border-radius: 12px;
     }
 </style>
 """
@@ -142,75 +177,197 @@ def load_dataset():
     return generate_mock_energy_data()
 
 
+def normalize_energy_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    """Standardizes uploaded CSV columns to the app's expected schema."""
+    if df is None or df.empty:
+        return df
+
+    normalized = df.copy()
+    normalized.columns = [str(col).strip() for col in normalized.columns]
+
+    rename_map = {
+        'datetime': 'timestamp',
+        'date_time': 'timestamp',
+        'time': 'timestamp',
+        'building': 'location',
+        'zone': 'location',
+        'campus_area': 'location',
+        'usage_kwh': 'consumption_kwh',
+        'energy_kwh': 'consumption_kwh',
+        'kwh': 'consumption_kwh',
+        'power_kw': 'consumption_kwh',
+        'load_kwh': 'consumption_kwh',
+        'actual': 'actual_kwh',
+        'actual_kwh': 'actual_kwh',
+        'forecast': 'forecast_kwh',
+        'predicted_kwh': 'forecast_kwh',
+    }
+    normalized = normalized.rename(columns=rename_map)
+
+    if 'timestamp' not in normalized.columns and 'date' in normalized.columns:
+        normalized = normalized.rename(columns={'date': 'timestamp'})
+
+    if 'location' not in normalized.columns and 'building_name' in normalized.columns:
+        normalized = normalized.rename(columns={'building_name': 'location'})
+
+    if 'location' not in normalized.columns:
+        normalized['location'] = 'Unknown'
+
+    if 'consumption_kwh' not in normalized.columns:
+        if 'actual_kwh' in normalized.columns:
+            normalized['consumption_kwh'] = normalized['actual_kwh']
+        else:
+            normalized['consumption_kwh'] = 0.0
+
+    if 'actual_kwh' not in normalized.columns:
+        normalized['actual_kwh'] = normalized['consumption_kwh']
+
+    if 'forecast_kwh' not in normalized.columns:
+        normalized['forecast_kwh'] = normalized['consumption_kwh']
+
+    if 'forecast_upper' not in normalized.columns:
+        normalized['forecast_upper'] = normalized['forecast_kwh'] * 1.10
+
+    if 'forecast_lower' not in normalized.columns:
+        normalized['forecast_lower'] = normalized['forecast_kwh'] * 0.90
+
+    if 'is_anomaly' not in normalized.columns:
+        normalized['is_anomaly'] = False
+
+    if 'reason' not in normalized.columns:
+        normalized['reason'] = ''
+
+    if 'timestamp' in normalized.columns:
+        normalized['timestamp'] = pd.to_datetime(normalized['timestamp'], errors='coerce')
+        normalized = normalized.dropna(subset=['timestamp']).copy()
+
+    if 'hour' not in normalized.columns and 'timestamp' in normalized.columns:
+        normalized['hour'] = normalized['timestamp'].dt.hour
+
+    if 'day_name' not in normalized.columns and 'timestamp' in normalized.columns:
+        normalized['day_name'] = normalized['timestamp'].dt.strftime('%A')
+
+    return normalized
+
+
 def main():
-    df = load_dataset()
-    
+    df = normalize_energy_dataframe(load_dataset())
+
+    uploaded_file = st.sidebar.file_uploader(
+        "Upload energy CSV file",
+        type=["csv"],
+        help="Upload a CSV containing columns like timestamp, location, consumption_kwh, forecast_kwh, is_anomaly, reason."
+    )
+
+    if uploaded_file is not None:
+        try:
+            uploaded_df = pd.read_csv(uploaded_file)
+            df = normalize_energy_dataframe(uploaded_df)
+            st.sidebar.success("Custom CSV uploaded successfully.")
+        except Exception:
+            st.sidebar.warning("Could not read the uploaded file. Using demo dataset instead.")
+            df = normalize_energy_dataframe(load_dataset())
+
     # Render Main Brand Header
     st.markdown("""
     <div class="main-header">
         <div>
-            <h1 class="brand-title">⚡ EnergiQ Platform</h1>
-            <div class="brand-subtitle">AI-Based Energy Consumption Intelligence, Forecasting & Wastage Optimization</div>
+            <h1 class="brand-title">⚡ EnergiQ</h1>
+            <div class="brand-subtitle">Your simple energy dashboard for smarter usage, forecasting, and savings.</div>
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
+
+    st.caption("Welcome back! Here is a quick view of your energy performance.")
+
     # Sidebar Navigation
-    st.sidebar.markdown("## 🧭 Navigation")
+    st.sidebar.markdown("## Menu")
     nav_option = st.sidebar.radio(
-        "Select Module:",
+        "Go to:",
         options=[
-            "📊 Executive Overview",
-            "📈 Consumption Intelligence",
-            "🔮 AI Consumption Forecasting",
-            "🚨 Anomaly & Wastage Engine",
-            "🏫 Smart Campus / Building View",
-            "⚡ Live Energy Monitor",
-            "🎮 What-If Energy Simulator"
+            "Dashboard",
+            "Usage Insights",
+            "Forecasts",
+            "Alerts & Waste",
+            "Building View",
+            "Live Monitor",
+            "Savings Simulator"
         ],
         index=0
     )
-    
+
     st.sidebar.markdown("---")
-    st.sidebar.markdown("### ⚙️ System Controls")
+    st.sidebar.markdown("### Filters")
+
+    if 'timestamp' in df.columns and not df.empty:
+        df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
+        df = df.dropna(subset=['timestamp']).copy()
+
+    if df.empty:
+        st.sidebar.warning("No valid records found. Please upload a valid energy dataset.")
+        return
+
+    min_date = df['timestamp'].min().date()
+    max_date = df['timestamp'].max().date()
+    start_date, end_date = st.sidebar.date_input(
+        "Select date range:",
+        value=(min_date, max_date),
+        min_value=min_date,
+        max_value=max_date
+    )
+
     campus_filter = st.sidebar.multiselect(
-        "Filter Location / Zone:",
+        "Select area(s):",
         options=list(df['location'].unique()),
         default=list(df['location'].unique())
     )
-    
-    # Filter dataset based on sidebar selection
+
+    if isinstance(start_date, tuple):
+        start_date, end_date = start_date
+
+    filtered_df = df[
+        (df['timestamp'].dt.date >= start_date) &
+        (df['timestamp'].dt.date <= end_date)
+    ]
+
     if campus_filter:
-        active_df = df[df['location'].isin(campus_filter)]
+        active_df = filtered_df[filtered_df['location'].isin(campus_filter)]
     else:
-        active_df = df
-        
+        active_df = filtered_df
+
     st.sidebar.markdown("---")
-    st.sidebar.info(f"🟢 **System Status**: Online\n\n📅 Data Window: {active_df['timestamp'].min().strftime('%b %d')} - {active_df['timestamp'].max().strftime('%b %d, %Y')}")
+    st.sidebar.info(f"🟢 Status: Online\n\n📅 Period: {active_df['timestamp'].min().strftime('%b %d')} - {active_df['timestamp'].max().strftime('%b %d, %Y')}\n\n🏢 Locations: {', '.join(active_df['location'].unique()) if len(active_df) else 'None'}")
 
     # Render Selected View
-    if nav_option == "📊 Executive Overview":
-        st.markdown("## 📊 Executive Overview")
+    if nav_option == "Dashboard":
+        st.markdown("## Dashboard Overview")
+        render_recommendations(active_df)
         render_overview_kpis(active_df)
         st.markdown("<br>", unsafe_allow_html=True)
         render_consumption_intelligence(active_df)
-        
-    elif nav_option == "📈 Consumption Intelligence":
+
+    elif nav_option == "Usage Insights":
+        st.markdown("## Usage Insights")
         render_consumption_intelligence(active_df)
-        
-    elif nav_option == "🔮 AI Consumption Forecasting":
+
+    elif nav_option == "Forecasts":
+        st.markdown("## Forecasts")
         render_forecasting_section(active_df)
-        
-    elif nav_option == "🚨 Anomaly & Wastage Engine":
+
+    elif nav_option == "Alerts & Waste":
+        st.markdown("## Alerts & Waste")
         render_anomaly_and_wastage_section(active_df)
-        
-    elif nav_option == "🏫 Smart Campus / Building View":
+
+    elif nav_option == "Building View":
+        st.markdown("## Building View")
         render_location_analytics(active_df)
-        
-    elif nav_option == "⚡ Live Energy Monitor":
+
+    elif nav_option == "Live Monitor":
+        st.markdown("## Live Monitor")
         render_live_monitor(active_df)
-        
-    elif nav_option == "🎮 What-If Energy Simulator":
+
+    elif nav_option == "Savings Simulator":
+        st.markdown("## Savings Simulator")
         render_simulator_page()
 
 

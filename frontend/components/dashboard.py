@@ -90,6 +90,87 @@ def generate_mock_energy_data():
     return df
 
 
+def build_recommendations(df: pd.DataFrame):
+    """Builds AI-style recommendations based on current filtered data."""
+    if df.empty:
+        return []
+
+    recommendations = []
+
+    total_kwh = df['consumption_kwh'].sum()
+    by_location = df.groupby('location')['consumption_kwh'].sum().sort_values(ascending=False)
+    anomaly_locations = df[df['is_anomaly']].groupby('location').size().sort_values(ascending=False)
+    peak_hour = df.groupby('hour')['consumption_kwh'].mean().idxmax()
+    peak_location = by_location.idxmax()
+
+    if not anomaly_locations.empty:
+        top_anomaly_loc = anomaly_locations.index[0]
+        top_anomaly_count = anomaly_locations.iloc[0]
+        recommendations.append({
+            'severity': 'High',
+            'title': f'Peak anomaly in {top_anomaly_loc}',
+            'detail': f'{top_anomaly_count} unusual load events were detected. Review equipment shutdown and HVAC schedules.',
+            'savings': '$180 - $250 / month',
+            'location': top_anomaly_loc
+        })
+
+    recommendations.append({
+        'severity': 'Medium',
+        'title': f'{peak_location} is the highest energy consumer',
+        'detail': f'This area contributes {by_location.iloc[0]:,.1f} kWh. Consider optimized scheduling or load balancing.',
+        'savings': '$90 - $150 / month',
+        'location': peak_location
+    })
+
+    recommendations.append({
+        'severity': 'Low',
+        'title': f'Peak load around {peak_hour}:00',
+        'detail': 'Energy demand rises sharply during this hour. Shift non-critical loads or stagger equipment usage.',
+        'savings': '$40 - $90 / month',
+        'location': 'Whole campus'
+    })
+
+    if total_kwh > 0:
+        recommendations.append({
+            'severity': 'Medium',
+            'title': 'Savings opportunity available',
+            'detail': 'A targeted efficiency action plan could reduce energy usage without disrupting core operations.',
+            'savings': '~5-12% reduction',
+            'location': 'All locations'
+        })
+
+    return recommendations[:4]
+
+
+def render_recommendations(df: pd.DataFrame):
+    """Renders quick, actionable AI recommendations based on current filtered view."""
+    st.markdown("### Smart Recommendations")
+    recs = build_recommendations(df)
+
+    if not recs:
+        st.info("No recommendation data available for the selected filters.")
+        return
+
+    cols = st.columns(2)
+    for idx, rec in enumerate(recs):
+        with cols[idx % 2]:
+            color = {
+                'High': '#ff4d4d',
+                'Medium': '#ffb703',
+                'Low': '#4cc9f0'
+            }.get(rec['severity'], '#8ecae6')
+
+            st.markdown(f"""
+            <div style="background: rgba(17,24,39,0.9); border-left: 5px solid {color}; padding: 16px; border-radius: 12px; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.12);">
+                <div style="font-size: 12px; letter-spacing: 0.08em; color: {color}; font-weight: 700; text-transform: uppercase;">{rec['severity']} Priority</div>
+                <div style="font-size: 20px; font-weight: 700; color: #ffffff; margin-top: 8px;">{rec['title']}</div>
+                <div style="font-size: 14px; color: #d1d5db; margin-top: 8px;">{rec['detail']}</div>
+                <div style="font-size: 13px; color: #a7f3d0; margin-top: 12px; font-weight: 600;">Savings: {rec['savings']}</div>
+                <div style="font-size: 12px; color: #cbd5e1; margin-top: 6px;">Area: {rec['location']}</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+
 def render_overview_kpis(df: pd.DataFrame):
     """Renders top executive KPI summary grid."""
     total_kwh = df['consumption_kwh'].sum()
@@ -140,7 +221,7 @@ def render_overview_kpis(df: pd.DataFrame):
 
 def render_consumption_intelligence(df: pd.DataFrame):
     """Renders consumption intelligence view with tabs for different timeframes."""
-    st.markdown("### 📊 Consumption Intelligence & Trend Analysis")
+    st.markdown("### Consumption Intelligence & Trend Analysis")
     
     tab_hourly, tab_daily, tab_peak = st.tabs(["Hourly Profile", "Daily Aggregates", "Peak Usage Analysis"])
     
@@ -169,32 +250,46 @@ def render_consumption_intelligence(df: pd.DataFrame):
 
 def render_location_analytics(df: pd.DataFrame):
     """Renders Smart Campus / Building-wise comparative analytics."""
-    st.markdown("### 🏫 Smart Campus / Building View")
-    
+    st.markdown("### Smart Campus / Building View")
+
+    if df is None or df.empty:
+        st.warning("No building data available for this view.")
+        return
+
+    required_cols = {'location', 'consumption_kwh'}
+    missing = required_cols - set(df.columns)
+    if missing:
+        st.warning(f"Building view needs the following columns: {sorted(required_cols)}. Missing: {sorted(missing)}")
+        st.dataframe(df.head())
+        return
+
     col_sel, col_stats = st.columns([1, 2])
-    
+
     with col_sel:
         selected_loc = st.selectbox(
             "Select Building / Campus Area:",
             options=["All Buildings"] + list(df['location'].unique()),
             index=0
         )
-        
+
     if selected_loc != "All Buildings":
         filtered_df = df[df['location'] == selected_loc]
     else:
         filtered_df = df
 
-    loc_summary = filtered_df.groupby('location')['consumption_kwh'].agg(
+    loc_summary = filtered_df.groupby('location', dropna=False)['consumption_kwh'].agg(
         Total_kWh='sum',
         Peak_kW='max',
         Avg_kW='mean',
-        Anomalies='sum'
+        Anomalies=lambda x: int((filtered_df.loc[x.index, 'is_anomaly'] if 'is_anomaly' in filtered_df.columns else False).sum()) if 'is_anomaly' in filtered_df.columns else 0
     ).reset_index()
-    
+
+    if 'is_anomaly' not in filtered_df.columns:
+        loc_summary['Anomalies'] = 0
+
     fig_loc = render_location_breakdown_chart(loc_summary.rename(columns={'Total_kWh': 'consumption_kwh'}))
     st.plotly_chart(fig_loc, use_container_width=True, key="location_breakdown_chart")
-    
+
     st.markdown("#### Building Comparison Metrics")
     st.dataframe(
         loc_summary.style.format({
@@ -209,7 +304,7 @@ def render_location_analytics(df: pd.DataFrame):
 
 def render_forecasting_section(df: pd.DataFrame):
     """Renders AI forecasting tab with next-hour, next-day, and 7-day predictions."""
-    st.markdown("### 🔮 AI Consumption Forecasting")
+    st.markdown("### AI Consumption Forecasting")
     
     col_metrics, col_chart = st.columns([1, 3])
     
@@ -257,7 +352,7 @@ def render_forecasting_section(df: pd.DataFrame):
 
 def render_anomaly_and_wastage_section(df: pd.DataFrame):
     """Renders Anomaly & Wastage Detection with Explainable AI recommendations."""
-    st.markdown("### 🚨 Anomaly & Energy Wastage Detection Engine")
+    st.markdown("### Anomaly & Energy Wastage Detection Engine")
     
     # Time-series anomaly chart
     fig_anom = render_anomaly_scatter_chart(df)
@@ -306,7 +401,7 @@ def render_anomaly_and_wastage_section(df: pd.DataFrame):
 
 def render_live_monitor(df: pd.DataFrame):
     """Renders real-time power monitor with simulated live stream."""
-    st.markdown("### ⚡ Live Energy Monitor (Real-Time)")
+    st.markdown("### Live Energy Monitor (Real-Time)")
     
     col_gauge, col_feed = st.columns([1, 1.5])
     
